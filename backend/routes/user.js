@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
-const userCtrl = require('../controllers/userControllers');
+const userCtrl = require('../controllers/user');
 // Vérification de l'email
 const verifEmail = require('../middleware/email');
 // Vérification du password

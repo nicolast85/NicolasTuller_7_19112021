@@ -18,16 +18,16 @@ const path = require('path');
 const rateLimit = require('./middleware/limiter');
 
 // Import du routeur (message)
-const messageRoutes = require('./routes/messageRoutes');
+const messageRoutes = require('./routes/message');
 
 // Import du routeur (comment)
-const commentRoutes = require('./routes/commentRoutes');
+const commentRoutes = require('./routes/comment');
 
 // Import du routeur (user)
-const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/user');
 
 // Import du routeur (profile)
-const profileRoutes = require('./routes/profileRoutes');
+const profileRoutes = require('./routes/profile');
 
 app.use(rateLimit);
 app.use(helmet());

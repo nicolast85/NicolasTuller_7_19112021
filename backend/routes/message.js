@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
-const messageCtrl = require('../controllers/messageControllers');
+const messageCtrl = require('../controllers/message');
 
 // Import du middleware Auth
 const auth = require('../middleware/auth');

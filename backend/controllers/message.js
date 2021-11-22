@@ -1,5 +1,5 @@
 // Besoin de notre model car on va enregistrer et lire des Models dans ses middlewares.
-const models = require("../models");
+const models = require('../models');
 
 // Package pour pouvoir créer et vérifier les tokens d'authentification
 const jwt = require('jsonwebtoken');
