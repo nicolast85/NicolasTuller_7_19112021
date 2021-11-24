@@ -63,7 +63,9 @@ exports.signup = (req, res, next) => {
 
 exports.login = (req, res, next) => {
     const emailCryptoJs = cryptojs.HmacSHA512(req.body.email, process.env.SECRET_CRYPTOJS_TOKEN).toString(cryptojs.enc.Base64);
-    models.findOne({ email: emailCryptoJs })
+    models.User.findOne({ 
+      where: { email: emailCryptoJs, },
+    })
     .then(user => {
       if (!user) {
         return res.status(401).json({ error: 'Utilisateur non trouvé !' });
