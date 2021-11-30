@@ -1,5 +1,5 @@
 <template>
-    <div class="register">
+    <div class="signup">
     <h1>Inscription au forum Groupomania</h1>
     <form method="post" @submit.prevent="buttonSignup">
       <div>

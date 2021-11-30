@@ -1,9 +1,6 @@
 <template>
     <div id="app">
     <router-view />
-    <footer>
-      <p>Copyright © 2021 Tous droits réservés, Groupomania</p>
-    </footer>
     </div>
 </template>
 

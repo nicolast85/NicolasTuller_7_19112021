@@ -29,6 +29,9 @@ const userRoutes = require('./routes/user');
 // Import du routeur (profile)
 const profileRoutes = require('./routes/profile');
 
+//DB connection//
+require('./db.config');
+
 app.use(rateLimit);
 app.use(helmet());
 // ------------------ Intégrés à Helmet mais permet de savoir exactement de quoi Helmet protège ------------------------

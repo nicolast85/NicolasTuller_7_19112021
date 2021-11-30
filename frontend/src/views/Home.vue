@@ -1,14 +1,14 @@
 <template>
   <div>
     <nav id="nav">
-      <img src="../assets/logo/icon.png" alt="logo" />
+      <img class=logo src="../assets/logo/icon.png" alt="logo" />
       <ul class="links">
         <li>
           <router-link to="/login">Se connecter</router-link>
         </li>
       </ul>
     </nav>
-    <register />
+    <signup />
   </div>
 </template>
 
@@ -21,3 +21,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .logo {
+    width: 30%;
+  }
+</style>
