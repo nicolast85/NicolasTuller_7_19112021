@@ -2,21 +2,21 @@
   "development": {
     "username": "root",
     "password": "gpmdb21",
-    "database": "GroupomaniaDB",
+    "database": "groupomaniadb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "gpmdb21",
-    "database": "GroupomaniaDB_test",
+    "database": "groupomaniadb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "gpmdb21",
-    "database": "GroupomaniaDB_production",
+    "database": "groupomaniadb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

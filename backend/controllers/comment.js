@@ -30,7 +30,7 @@ exports.getAllComments = (req, res, next) => {
       include: [
         {
           model: models.User,
-          attributes: ["name", "firstname"],
+          attributes: ["lastname", "firstname"],
         },
       ],
     })

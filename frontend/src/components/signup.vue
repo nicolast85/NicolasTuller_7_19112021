@@ -3,8 +3,8 @@
     <h1>Inscription au forum Groupomania</h1>
     <form method="post" @submit.prevent="buttonSignup">
       <div>
-        <label for="name"></label>
-        <input type="text" id="nom" placeholder="Nom" v-model="name"/>
+        <label for="lastname"></label>
+        <input type="text" id="nom" placeholder="Nom" v-model="lastname"/>
       </div>
       <div>
         <label for="firsname"></label>
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       email: "",
-      name: "",
+      lastname: "",
       firstname: "",
       password: "",
       error: "",
@@ -44,7 +44,7 @@ export default {
     async buttonSignup() {
       const data = {
         email: this.email,
-        name: this.name,
+        lastname: this.lastname,
         firstname: this.firstname,
         password: this.password,
       };

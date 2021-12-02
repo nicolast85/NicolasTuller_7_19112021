@@ -17,7 +17,7 @@ exports.getOneProfile = (req, res, next) => {
       attributes: [
             "id", 
             "email", 
-            "name", 
+            "lastname", 
             "firstname"
         ],
       where: { id: req.params.id },
@@ -56,14 +56,14 @@ exports.getAllMessagesProfile = (req, res, next) => {
 // Put /profile/:id : 
 // On utilise la méthode findOne() pour trouver userId ayant le même id que notre requête
 // On vérifie que l'auteur soit bien le meme que celui qui a fait la requête ou que se soit un Admin
-// On doit remplir les champs Name et Firstname pour modifier le profile
+// On doit remplir les champs LastName et Firstname pour modifier le profile
 exports.modifyProfile = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
     const userId = decodedToken.userId;
     const isAdmin = decodedToken.isAdmin;
   
-    if (req.body.name == "" || req.body.firstname == "") {
+    if (req.body.lastname == "" || req.body.firstname == "") {
       return res
         .status(400)
         .json({ error: 'Merci de remplir tous les champs !' });
@@ -75,7 +75,7 @@ exports.modifyProfile = (req, res, next) => {
       if (user.id === userId || isAdmin === true) {
         user
           .update({
-            name: req.body.name,
+            lastname: req.body.lastname,
             firstname: req.body.firstname,
           })
           .then(() => res.status(200).json({ message: 'Profile modifié !' }))

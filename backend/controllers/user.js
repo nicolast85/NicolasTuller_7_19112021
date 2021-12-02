@@ -27,7 +27,7 @@ exports.signup = (req, res, next) => {
     .then((hash) => {
         const user = models.User.create({
           email: emailCryptoJs,
-          name: req.body.name,
+          lastname: req.body.lastname,
           firstname: req.body.firstname,
           password: hash,
           isAdmin: false,
@@ -77,7 +77,7 @@ exports.login = (req, res, next) => {
           }
           res.status(200).json({
             userId: user.id,
-            name: user.name,
+            lastname: user.lastname,
             firstname: user.firstname,
             token: jwt.sign({ userId: user.id, isAdmin: user.isAdmin }, "SECRET_TOKEN", {
               expiresIn: "24h",
