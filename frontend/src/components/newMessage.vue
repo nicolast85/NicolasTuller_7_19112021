@@ -1,12 +1,12 @@
 <template>
   <div class="forum">
     <form method="post" @submit.prevent="buttonNewMessage">
-      <h2>Envoyer un message <i class="far fa-paper-plane"></i></h2>
+      <h2>Envoyer un message <i class="far fa-envelope"></i></h2>
       <div>
         <label for="title"></label>
         <input type="title" id="title" placeholder="Titre" v-model="title" />
       </div>
-      <div>
+      <div id="content">
         <label for="content"></label>
         <textarea
           type="text"
@@ -17,7 +17,7 @@
           v-model="content"
         />
       </div>
-      <div>
+      <div id="join">
         <label for="File">(Facultatif)</label><br />
         <input type="file" ref="file" @change="selectFile()" />
       </div>
@@ -74,5 +74,7 @@ export default {
 </script>
 
 <style scoped>
-
+button, #join, #content {
+  margin-top: 0.5rem;
+}
 </style>

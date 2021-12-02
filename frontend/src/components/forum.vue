@@ -1,14 +1,15 @@
 <template>
   <div>
     <nav id="nav">
-      <img src="../assets/logo/icon.png" alt="logo" />
+      <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <ul class="links">
-        <li><router-link to="/forum">Accueil</router-link></li>
-        <li><router-link to="/profile">Profil</router-link></li>
-        <li><a to="/login" v-on:click="Logout()">Déconnexion</a></li>
+        <li><router-link to="/forum"><i class="fas fa-globe"></i> Accueil</router-link></li>
+        <li><router-link to="/profile"><i class="fas fa-user-circle"></i> Votre Profil</router-link></li>
+        <li><a to="/login" v-on:click="Logout()">
+        <i class="fas fa-exclamation-triangle"></i> Déconnexion</a></li>
       </ul>
     </nav>
-    <h2>Forum</h2>
+    <h1>Forum</h1>
     <div>
       <newMessage />
     </div>
@@ -48,6 +49,10 @@ export default {
 li {
   cursor : pointer;
   text-decoration: none;
+  text-align-last: right;
+  margin-right: 1rem;
+  list-style-type: none;
+  margin-top: 0.5rem;
 }
 
 li>a {
@@ -57,5 +62,4 @@ li>a {
 li:hover {
   text-decoration: underline;
 }
-
 </style>

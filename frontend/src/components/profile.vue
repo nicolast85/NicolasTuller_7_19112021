@@ -1,20 +1,30 @@
 <template>
   <div>
     <nav id="nav">
+      <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <ul class="links">
         <li>
-          <router-link to="/forum">Retour</router-link>
+          <router-link to="/forum"><i class="fas fa-arrow-circle-left"></i> Retour</router-link>
+        </li>
+        <li>
+          <router-link to="/login" v-on:click="Logout()">
+          <i class="fas fa-exclamation-triangle"></i> Déconnexion</router-link>
         </li>
       </ul>
     </nav>
     <div>
-    <h2>Profile</h2>
-      <p> <u>E-mail</u>: {{ dataProfile.email }}
+    <h1>Profil</h1>
+      <p> 
+        <u><i class="fas fa-at"></i> Mail </u>: {{ dataProfile.email }}
       </p>
       <p>
-        <u>Nom et prénom</u>: {{ dataProfile.lastname }} {{ dataProfile.firstname }}
+        <u><i class="fas fa-users"></i> Nom </u>: {{ dataProfile.lastname }}
+      </p>
+      <p>
+        <u><i class="fas fa-user"></i> Prénom </u>: {{ dataProfile.firstname }}
       </p>
     </div>
+    <h2>Modifier votre profil :</h2>
     <form method="post" @submit.prevent="updateProfile">
       <div>
         <label for="lastname"></label>
@@ -24,13 +34,15 @@
         <label for="firstname"></label>
         <input type="firstname" id="firstname" placeholder="Prénom" v-model="firstname"/>
       </div>
-      <button type="submit" @click.prevent="updateProfile">Modifier</button>
+      <button type="submit" @click.prevent="updateProfile">
+        <i class="fas fa-exclamation"></i> Modifier votre profil</button>
     </form>
     <div class="error" v-if="error">
       {{ error.error }}
     </div>
-    <button class="deletebtn" type="submit" @click.prevent="deleteProfile">Supprimer mon compte</button>
-    <h4>Tout mes messages</h4>
+    <button class="deletebtn" type="submit" @click.prevent="deleteProfile">
+      <i class="fas fa-skull-crossbones"></i> Supprimer votre compte</button>
+    <h2>Tous vos messages :</h2>
     <div class="my-messages">
       <div class="my-message" v-for="myMessage in messagesProfile" :key="myMessage.id">
         <h3>{{ myMessage.title }}</h3>
@@ -134,9 +146,42 @@ export default {
     this.loadProfile();
     this.loadMessagesProfile();
   },
+  Logout() {
+      localStorage.clear();
+      this.$router.push("/");
+    },
 };
+
 </script>
 
 <style scoped>
-
+  li {
+    text-align-last: right;
+    margin-right: 1rem;
+    list-style-type: none;
+    margin-top: 0.5rem;
+  }
+  li a {
+    text-decoration: none;
+  }
+  li:hover {
+    text-decoration: underline;
+  }
+  .logo {
+    width: 40%;
+  }
+  p {
+    text-align : left;
+    margin-left : 1rem;
+  }
+  u {
+    text-decoration: none;
+  }
+  form div {
+    padding-bottom: 0.5rem;
+  }
+  button {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
 </style>

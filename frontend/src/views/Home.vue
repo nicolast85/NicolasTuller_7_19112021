@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav id="nav">
-      <img class=logo src="../assets/logo/icon.png" alt="logo" />
+      <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <ul class="links">
         <li>
           <router-link to="/login">Se connecter</router-link>
@@ -23,7 +23,5 @@ export default {
 </script>
 
 <style scoped>
-  .logo {
-    width: 30%;
-  }
+  
 </style>

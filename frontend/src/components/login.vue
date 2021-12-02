@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <nav id="nav">
-      <img src="../assets/logo/icon.png" alt="logo"/>
+      <img src="../assets/logo/icon-left-font.png" alt="logo"/>
       <ul class="links">
         <li>
           <router-link to="/">S'enregistrer</router-link>
