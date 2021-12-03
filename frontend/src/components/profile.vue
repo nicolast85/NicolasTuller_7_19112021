@@ -88,6 +88,7 @@ export default {
         })
         .then((res) => {
           this.dataProfile = res.data;
+          console.log(res.data);
         })
         .catch((error) => {
           console.log({ error });

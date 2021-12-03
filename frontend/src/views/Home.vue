@@ -4,7 +4,7 @@
       <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <ul class="links">
         <li>
-          <router-link to="/login">Se connecter</router-link>
+          <router-link to="/login"><i class="fas fa-wifi"></i> Se connecter</router-link>
         </li>
       </ul>
     </nav>
@@ -23,5 +23,15 @@ export default {
 </script>
 
 <style scoped>
-  
+  li {
+    text-align-last: right;
+    margin-right: 1rem;
+    list-style-type: none;
+  }
+  li a {
+    text-decoration: none;
+  }
+  li:hover {
+    text-decoration: underline;
+  }
 </style>

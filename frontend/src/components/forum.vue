@@ -45,7 +45,6 @@ export default {
 </script>
 
 <style scoped>
-
 li {
   cursor : pointer;
   text-decoration: none;
@@ -54,12 +53,13 @@ li {
   list-style-type: none;
   margin-top: 0.5rem;
 }
-
 li>a {
   text-decoration: none;
 }
-
 li:hover {
   text-decoration: underline;
 }
+.logo {
+    width: 40%;
+  }
 </style>

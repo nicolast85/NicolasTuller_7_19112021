@@ -32,17 +32,17 @@ exports.signup = (req, res, next) => {
           password: hash,
           isAdmin: false,
         })
-          .then((user) => {
-            res.status(201).json({
-              userId: user.id,
-              isAdmin: user.isAdmin,
-            });
-          })
-          .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
-          .catch((error) => res.status(400).json({ error: error }));
-      })
-      .catch((error) => res.status(500).json({ error: error }));
-  };
+        .then((user) => {
+          res.status(201).json({
+            userId: user.id,
+            isAdmin: user.isAdmin,
+        });
+        })
+        .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
+        .catch((error) => res.status(400).json({ error: error }));
+    })
+    .catch((error) => res.status(500).json({ error: error }));
+};
 
 // Utilisation de CryptoJs pour chiffrer le mail avec la variable emailCryptoJs, type d'algorithme : HmacSHA512
 // Utilisation du modèle Mongoose pour vérifier que l'e-mail entré par l'utilisateur correspond à un utilisateur
