@@ -3,10 +3,10 @@
     <nav id="nav">
       <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <ul class="links">
-        <li><router-link to="/forum"><i class="fas fa-globe"></i> Accueil</router-link></li>
-        <li><router-link to="/profile"><i class="fas fa-user-circle"></i> Votre Profil</router-link></li>
+        <li><router-link to="/forum"><i class="fas fa-globe"></i>Accueil</router-link></li>
+        <li><router-link to="/profile"><i class="fas fa-user-circle"></i>Votre Profil</router-link></li>
         <li><a to="/login" v-on:click="Logout()">
-        <i class="fas fa-exclamation-triangle"></i> Déconnexion</a></li>
+        <i class="fas fa-exclamation-triangle"></i>Déconnexion</a></li>
       </ul>
     </nav>
     <h1>Forum</h1>

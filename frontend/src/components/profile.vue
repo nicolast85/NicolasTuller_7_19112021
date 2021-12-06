@@ -4,11 +4,11 @@
       <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <ul class="links">
         <li>
-          <router-link to="/forum"><i class="fas fa-arrow-circle-left"></i> Retour</router-link>
+          <router-link to="/forum" title="Retour au forum"><i class="fas fa-reply"></i>Retour</router-link>
         </li>
         <li>
-          <router-link to="/login" v-on:click="Logout()">
-          <i class="fas fa-exclamation-triangle"></i> Déconnexion</router-link>
+          <router-link to="/login" title="Déconnexion" v-on:click="Logout()">
+          <i class="fas fa-exclamation-triangle"></i>Déconnexion</router-link>
         </li>
       </ul>
     </nav>
@@ -24,7 +24,7 @@
         <u><i class="fas fa-user"></i> Prénom </u>: {{ dataProfile.firstname }}
       </p>
     </div>
-    <h2>Modifier votre profil :</h2>
+    <h2>Modifiez votre profil :</h2>
     <form method="post" @submit.prevent="updateProfile">
       <div>
         <label for="lastname"></label>
@@ -35,13 +35,13 @@
         <input type="firstname" id="firstname" placeholder="Prénom" v-model="firstname"/>
       </div>
       <button type="submit" @click.prevent="updateProfile">
-        <i class="fas fa-exclamation"></i> Modifier votre profil</button>
+        <i class="fas fa-exclamation"></i>Modifiez votre profil</button>
     </form>
     <div class="error" v-if="error">
       {{ error.error }}
     </div>
     <button class="deletebtn" type="submit" @click.prevent="deleteProfile">
-      <i class="fas fa-skull-crossbones"></i> Supprimer votre compte</button>
+      <i class="fas fa-user-slash"></i>Supprimez votre compte</button>
     <h2>Tous vos messages :</h2>
     <div class="my-messages">
       <div class="my-message" v-for="myMessage in messagesProfile" :key="myMessage.id">

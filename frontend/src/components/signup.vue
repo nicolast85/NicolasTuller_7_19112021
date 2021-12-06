@@ -1,6 +1,7 @@
 <template>
     <div class="signup">
     <h1>Inscription au forum Groupomania</h1>
+    <h2>Pas encore inscrits ?</h2>
     <form method="post" @submit.prevent="buttonSignup">
       <div class="field">
         <label for="lastname"></label><i class="fas fa-users"></i>
@@ -18,7 +19,8 @@
         <label for="password"></label><i class="fas fa-key"></i>
         <input type="password" id="password-input" placeholder="Mot de passe" v-model="password"/>
       </div>
-      <button type="submit" @click.prevent="buttonSignup"><i class="fas fa-file-signature"></i> Inscription</button>
+      <button type="submit" title="Pas encore inscrits ? Remplissez le formulaire !" @click.prevent="buttonSignup">
+        <i class="fas fa-file-signature"></i>Inscription</button>
     </form>
     <div class="error" v-if="error">
       {{ error.error }}

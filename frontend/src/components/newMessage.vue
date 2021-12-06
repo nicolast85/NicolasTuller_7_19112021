@@ -11,17 +11,17 @@
         <textarea
           type="text"
           id="content"
-          placeholder="Votre message !"
+          placeholder=" Votre message !"
           rows="6"
           cols="40"
           v-model="content"
         />
       </div>
       <div id="join">
-        <label for="File">(Facultatif)</label><br />
+        <label class="facultatif" for="File">(Facultatif)<i class="fas fa-file-import"></i></label>
         <input type="file" ref="file" @change="selectFile()" />
       </div>
-      <button type="submit" @click.prevent="buttonNewMessage">Envoyer</button>
+      <button type="submit" @click.prevent="buttonNewMessage"><i class="fas fa-paper-plane"></i>Envoyer</button>
       <div class="error" v-if="error">
         {{ error.error }}
       </div>
@@ -76,5 +76,15 @@ export default {
 <style scoped>
 button, #join, #content {
   margin-top: 0.5rem;
+}
+.facultatif {
+  font-style: italic;
+}
+.error {
+  font-size: 13px;
+  background-color: #FD2D01;
+  color: #000;
+  margin: 20px;
+  padding: 10px;
 }
 </style>

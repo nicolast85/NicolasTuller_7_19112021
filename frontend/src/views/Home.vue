@@ -4,7 +4,8 @@
       <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <ul class="links">
         <li>
-          <router-link to="/login"><i class="fas fa-wifi"></i> Se connecter</router-link>
+          <router-link to="/login" title="Déjà inscrits ? Connectez vous !">
+          <i class="fas fa-wifi"></i>Se connecter</router-link>
         </li>
       </ul>
     </nav>

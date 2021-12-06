@@ -4,11 +4,13 @@
       <img class="logo" src="../assets/logo/icon-left-font.png" alt="logo"/>
       <ul class="links">
         <li>
-          <router-link to="/"><i class="fas fa-file-signature"></i> S'enregistrer</router-link>
+          <router-link to="/" title="Pas encore inscrit ? Allez y !">
+          <i class="fas fa-file-signature"></i>S'enregistrer</router-link>
         </li>
       </ul>
     </nav>
-    <h2>Connection au forum Groupomania</h2>
+    <h1>Connection au forum Groupomania</h1>
+    <h2>Déjà inscrits !</h2>
     <form method="post" @submit.prevent="buttonLogin">
       <div class="field">
         <label for="email"></label><i class="fas fa-at"></i>
@@ -18,7 +20,7 @@
         <label for="password"></label><i class="fas fa-key"></i>
         <input type="password" placeholder="Mot de passe" v-model="password"/>
       </div>
-      <button type="submit"><i class="fas fa-wifi"></i> Se connecter</button>
+      <button type="submit"><i class="fas fa-wifi"></i>Se connecter</button>
     </form>
     <div class="error" v-if="error">
       {{ error.error }}
