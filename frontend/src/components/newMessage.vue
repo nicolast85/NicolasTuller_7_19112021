@@ -4,7 +4,7 @@
       <h2>Envoyer un message <i class="far fa-envelope"></i></h2>
       <div>
         <label for="title"></label>
-        <input type="title" id="title" placeholder="Titre" v-model="title" />
+        <input class="title" type="title" id="title" placeholder="Votre titre !" v-model="title" />
       </div>
       <div id="content">
         <label for="content"></label>
@@ -18,8 +18,9 @@
         />
       </div>
       <div id="join">
-        <label class="facultatif" for="File">(Facultatif)<i class="fas fa-file-import"></i></label>
-        <input type="file" ref="file" @change="selectFile()" />
+        <label class="selection" for="File">(Sélectionner l'image à uploader [JPG,PNG,GIF])<br >
+        <i class="fas fa-file-import"></i></label>
+        <input type="file" ref="file" accept=".jpg, .jpeg, .png, .gif"  @change="selectFile()" />
       </div>
       <button type="submit" @click.prevent="buttonNewMessage"><i class="fas fa-paper-plane"></i>Envoyer</button>
       <div class="error" v-if="error">
@@ -77,7 +78,7 @@ export default {
 button, #join, #content {
   margin-top: 0.5rem;
 }
-.facultatif {
+.selection {
   font-style: italic;
 }
 .error {
@@ -86,5 +87,31 @@ button, #join, #content {
   color: #000;
   margin: 20px;
   padding: 10px;
+}
+.title {
+  padding: 3px 13px 3px 13px;
+  border: solid #091F43;
+  border-width: 2px;
+  margin: 0px;
+  width: auto;
+  background-color: #fff;
+  color: #091F43;
+}
+.title:hover {
+  background-color: #fff;
+  color: #091F43;
+}
+input {
+  border: solid;
+  text-decoration: none;
+  margin-bottom: 20px;
+  width: 50%;
+  background-color: #091F43;
+  color: #FFD7D7;
+  font-family: 'Josefin Sans';
+}
+input:hover {
+  background-color: #D1515A;
+  color: #fff;
 }
 </style>

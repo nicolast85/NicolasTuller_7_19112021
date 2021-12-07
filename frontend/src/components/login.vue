@@ -5,7 +5,7 @@
       <ul class="links">
         <li>
           <router-link to="/" title="Pas encore inscrit ? Allez y !">
-          <i class="fas fa-file-signature"></i>S'enregistrer</router-link>
+          <i class="fas fa-file-signature"></i>S'inscrire</router-link>
         </li>
       </ul>
     </nav>

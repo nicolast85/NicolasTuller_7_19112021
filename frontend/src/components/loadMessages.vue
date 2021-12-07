@@ -52,6 +52,7 @@ export default {
     loadForum() {
       let token = localStorage.getItem("token");
       let decodedToken = jwt.verify(token, "SECRET_TOKEN");
+      console.log(decodedToken);
       axios
         .get("http://localhost:3000/api/messages/", {
           headers: { Authorization: "Bearer " + token },

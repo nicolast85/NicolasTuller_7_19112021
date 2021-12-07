@@ -81,11 +81,17 @@ button:hover {
   border-color: #D1515A;
   box-shadow: 5px 5px 5px #D1515A;
 }
+textarea {
+  padding: 0.5rem;
+}
 textarea, input {
   border-radius: 10px;
   border-color: #091F43;
+  color: #091F43;
+  font-family: 'Josefin Sans';
 }
 input {
   padding: 3px 13px 3px 13px;
+  font-family: 'Josefin Sans';
 }
 </style>
