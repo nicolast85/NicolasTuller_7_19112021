@@ -4,7 +4,7 @@
       <img class="logo" src="../assets/logo/icon-left-font.png" alt="logo"/>
       <ul class="links">
         <li>
-          <router-link to="/" title="Pas encore inscrit ? Allez y !">
+          <router-link to="/" class="title" title="Pas encore inscrit ? Allez y !">
           <i class="fas fa-file-signature"></i>S'inscrire</router-link>
         </li>
       </ul>
@@ -73,7 +73,7 @@ export default {
   li a {
     text-decoration: none;
   }
-  li:hover {
+  .title:hover {
     text-decoration: underline;
   }
   .field {
@@ -87,5 +87,9 @@ export default {
   }
   .logo {
     width: 40%;
+  }
+  .error {
+    color: #FD2D01;
+    margin-top: 0.5rem;
   }
 </style>

@@ -17,11 +17,18 @@
           v-model="content"
         />
       </div>
+
+    <p>
+  <label class="inputfile"><input type="file" name="file" ref="file" accept=".jpg, .jpeg, .png, .gif"  @change="selectFile()" />
+  <i class="fas fa-file-import"></i>Sélectionner l'image à uploader (JPG,PNG,GIF)</label><span></span>
+</p> 
+
       <div id="join">
         <label class="selection" for="File">(Sélectionner l'image à uploader [JPG,PNG,GIF])<br >
         <i class="fas fa-file-import"></i></label>
         <input type="file" ref="file" accept=".jpg, .jpeg, .png, .gif"  @change="selectFile()" />
       </div>
+
       <button type="submit" @click.prevent="buttonNewMessage"><i class="fas fa-paper-plane"></i>Envoyer</button>
       <div class="error" v-if="error">
         {{ error.error }}
@@ -72,6 +79,14 @@ export default {
     },
   },
 };
+"use strict";
+const inputfiles = document.querySelectorAll('.inputfile input');
+inputfiles.forEach( function(inputfile){
+  inputfile.addEventListener('change',function(){
+    console.log( inputfile.parentNode.children );
+    inputfile.parentNode.nextSibling.textContent = inputfile.value.replace(/^.*[\\/]/, '');
+  });
+});
 </script>
 
 <style scoped>
@@ -113,5 +128,25 @@ input {
 input:hover {
   background-color: #D1515A;
   color: #fff;
+}
+.inputfile {
+  position:relative;
+  color: #FFD7D7;
+  background-color: #091F43;
+  display: inline-block;
+  cursor: pointer;
+  padding:5px 10px;
+  margin-right:5px;
+  border-radius: 10px;
+}
+.inputfile input {
+  position: absolute;
+  left:-9999px;
+  z-index: -1;
+}
+.inputfile input:focus,
+.inputfile:hover {
+  background-color: #D1515A;
+  color:#fff;
 }
 </style>

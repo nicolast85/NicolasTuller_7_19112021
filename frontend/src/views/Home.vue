@@ -4,7 +4,7 @@
       <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <ul class="links">
         <li>
-          <router-link to="/login" title="Déjà inscrits ? Connectez vous !">
+          <router-link to="/login" class="title" title="Déjà inscrits ? Connectez vous !">
           <i class="fas fa-wifi"></i>Se connecter</router-link>
         </li>
       </ul>
@@ -32,7 +32,7 @@ export default {
   li a {
     text-decoration: none;
   }
-  li:hover {
+  .title:hover {
     text-decoration: underline;
   }
 </style>

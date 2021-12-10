@@ -7,26 +7,21 @@ const bcrypt = require('bcrypt');
 // Package pour pouvoir créer et vérifier les tokens d'authentification
 const jwt = require('jsonwebtoken');
 
-// Package CryptoJs, Bibliothèque JavaScript de normes cryptographiques pour chiffrer le mail
-const cryptojs = require('crypto-js');
-
 // Module dotenv pour éviter stocker des informations sensibles au sein de notre application
 require('dotenv').config();
 
 // Nos routes d'authentification :
 // ------------------------------
-// Utilisation de CryptoJs pour chiffrer le mail avec la variable emailCryptoJs, type d'algorithme : HmacSHA512
 // Fonction de hachage de bcrypt dans notre mot de passe pour « saler » le mot de passe 10 fois. Plus la valeur 
 // est élevée, plus l'exécution de la fonction sera longue mais plus le hachage sera sécurisé.
 // Il s'agit d'une fonction asynchrone qui renvoie une Promise dans laquelle nous recevons le hash généré :
 // dans notre bloc then, nous créons un utilisateur et l'enregistrons dans la base de données, en renvoyant 
 // une réponse de réussite en cas de succès, et des erreurs avec le code d'erreur en cas d'échec.
 exports.signup = (req, res, next) => { 
-    const emailCryptoJs = cryptojs.HmacSHA512(req.body.email, process.env.SECRET_CRYPTOJS_TOKEN).toString(cryptojs.enc.Base64);
     bcrypt.hash(req.body.password, 10)
     .then((hash) => {
         const user = models.User.create({
-          email: emailCryptoJs,
+          email: req.body.email,
           lastname: req.body.lastname,
           firstname: req.body.firstname,
           password: hash,
@@ -44,7 +39,6 @@ exports.signup = (req, res, next) => {
     .catch((error) => res.status(500).json({ error: error }));
 };
 
-// Utilisation de CryptoJs pour chiffrer le mail avec la variable emailCryptoJs, type d'algorithme : HmacSHA512
 // Utilisation du modèle Mongoose pour vérifier que l'e-mail entré par l'utilisateur correspond à un utilisateur
 // existant de la base de données : 
 // - dans le cas contraire, nous renvoyons une erreur 401 Unauthorized
@@ -62,9 +56,8 @@ exports.signup = (req, res, next) => {
 // au bout de 24 heures.
 
 exports.login = (req, res, next) => {
-    const emailCryptoJs = cryptojs.HmacSHA512(req.body.email, process.env.SECRET_CRYPTOJS_TOKEN).toString(cryptojs.enc.Base64);
     models.User.findOne({ 
-      where: { email: emailCryptoJs, },
+      where: { email: req.body.email, },
     })
     .then(user => {
       if (!user) {

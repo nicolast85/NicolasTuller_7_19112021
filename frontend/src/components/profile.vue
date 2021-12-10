@@ -4,10 +4,10 @@
       <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <ul class="links">
         <li>
-          <router-link to="/forum" title="Retour au forum"><i class="fas fa-reply"></i>Retour</router-link>
+          <router-link to="/forum" class="link" title="Retour au forum"><i class="fas fa-reply"></i>Retour</router-link>
         </li>
         <li>
-          <router-link to="/login" title="Déconnexion" v-on:click="Logout()">
+          <router-link to="/login" class="link" title="Déconnexion" v-on:click="Logout()">
           <i class="fas fa-exclamation-triangle"></i>Déconnexion</router-link>
         </li>
       </ul>
@@ -165,7 +165,7 @@ export default {
   li a {
     text-decoration: none;
   }
-  li:hover {
+  .link:hover {
     text-decoration: underline;
   }
   .logo {
@@ -184,5 +184,8 @@ export default {
   button {
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+  }
+  u {
+    font-weight: 700;
   }
 </style>
