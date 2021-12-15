@@ -19,14 +19,18 @@ module.exports = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
     const verifyToken = jwt.verify(token, process.env.SECRET_TOKEN);
     const userId = verifyToken.userId;
+    const isAdmin = verifytoken.isAdmin;
+  //vérifie si userId correspond à celui du token si ok next
     if (req.body.userId && req.body.userId !== userId) {
       throw 'Invalid user ID';
+    } else if (req.body.isAdmin && req.body.isAdmin !== isAdmin) {
+      throw 'Not Admin';
     } else {
       next();
     }
   } catch {
     res.status(401).json({
-      error: new Error('Invalid request!')
+      error: new Error('Requête non authentifiée!')
     });
   }
 };
