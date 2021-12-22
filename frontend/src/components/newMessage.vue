@@ -1,7 +1,7 @@
 <template>
   <div class="forum">
     <form method="post" @submit.prevent="buttonNewMessage">
-      <h2>Envoyer un message <i class="far fa-envelope"></i></h2>
+      <h2>Envoyez un message <i class="far fa-envelope"></i></h2>
       <div>
         <label for="title"></label>
         <input class="title" type="title" id="title" placeholder="Votre titre !" v-model="title" />
@@ -20,16 +20,16 @@
 
     <p>
   <label class="inputfile"><input type="file" name="file" ref="file" accept=".jpg, .jpeg, .png, .gif"  @change="selectFile()" />
-  <i class="fas fa-file-import"></i>Sélectionner l'image à uploader (JPG,PNG,GIF)</label><span></span>
+  <i class="fas fa-file-import"></i>Sélectionnez l'image à uploader (JPG,PNG,GIF)</label><span></span>
 </p> 
 
       <div id="join">
-        <label class="selection" for="File">(Sélectionner l'image à uploader [JPG,PNG,GIF])<br >
+        <label class="selection" for="File">(Sélectionnez l'image à uploader [JPG,PNG,GIF])<br >
         <i class="fas fa-file-import"></i></label>
         <input type="file" ref="file" accept=".jpg, .jpeg, .png, .gif"  @change="selectFile()" />
       </div>
 
-      <button type="submit" @click.prevent="buttonNewMessage"><i class="fas fa-paper-plane"></i>Envoyer</button>
+      <button type="submit" @click.prevent="buttonNewMessage"><i class="fas fa-paper-plane" ></i>Envoyez</button>
       <div class="error" v-if="error">
         {{ error.error }}
       </div>
@@ -57,6 +57,7 @@ export default {
         data.append("title", this.title);
         data.append("content", this.content);
         data.append("image", this.file, this.file.name);
+        console.log(data);
       } else {
         data.append("title", this.title);
         data.append("content", this.content);
@@ -111,6 +112,7 @@ button, #join, #content {
   width: auto;
   background-color: #fff;
   color: #091F43;
+  width: 40%;
 }
 .title:hover {
   background-color: #fff;

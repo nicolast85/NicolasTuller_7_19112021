@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button type="submit" @click.prevent="deleteMessage">X</button>
+    <button type="submit" @click.prevent="deleteMessage">
+      <i class="far fa-trash-alt"></i> Supprimez le message</button>
   </div>
 </template>
 
@@ -37,5 +38,7 @@ export default {
 </script>
 
 <style scoped>
-
+button {
+  margin: 0.5rem;
+}
 </style>

@@ -3,9 +3,9 @@
     <nav id="nav">
       <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <ul class="links">
-        <li><router-link to="/forum" class="link"><i class="fas fa-globe"></i>Accueil</router-link></li>
-        <li><router-link to="/profile" class="link"><i class="fas fa-user-circle"></i>Votre Profil</router-link></li>
-        <li><a to="/login" class="link" v-on:click="Logout()">
+        <li><a to="/signup" class="link" title="Revenir à l'écran d'Inscription" v-on:click="Logout()"><i class="fas fa-globe"></i>Accueil</a></li>
+        <li><router-link to="/profile" class="link" title="Aller sur votre Profil"><i class="fas fa-user-circle"></i>Votre Profil</router-link></li>
+        <li><a to="/login" class="link" title="Revenir à l'écran de Connexion" v-on:click="Logout()">
         <i class="fas fa-exclamation-triangle"></i>Déconnexion</a></li>
       </ul>
     </nav>

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button type="submit" @click.prevent="deleteComment"><i class="fas fa-trash-alt"></i></button>
+    <button type="submit" @click.prevent="deleteComment">
+      <i class="fas fa-trash-alt"></i> Supprimez le commentaire</button>
   </div>
 </template>
 
@@ -45,5 +46,7 @@ export default {
 </script>
 
 <style scoped>
-
+button {
+  text-align: right;
+}
 </style>

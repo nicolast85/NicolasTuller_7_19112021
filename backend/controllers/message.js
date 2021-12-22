@@ -1,6 +1,6 @@
 // Besoin de notre model car on va enregistrer et lire des Models dans ses middlewares.
 const models = require('../models');
-
+const SECRET_TOKEN ="vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375"
 // Package pour pouvoir créer et vérifier les tokens d'authentification
 const jwt = require('jsonwebtoken');
 
@@ -73,8 +73,10 @@ exports.getOneMessage = (req, res, next) => {
 // ajoutons '://' , puis utilisons req.get('host') pour résoudre l'hôte du serveur (ici, 'localhost:3000' ). 
 // Nous ajoutons finalement '/images/' et le nom de fichier pour compléter notre URL.
 exports.createMessage = (req, res, next) => {
+    console.log("decodedToken",req.headers)
     const token = req.headers.authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
+    const decodedToken = jwt.verify(token, SECRET_TOKEN);
+    console.log("decodedToken",decodedToken)
     const userId = decodedToken.userId;
   
     if (req.body.title === "" || req.body.content === "") {
@@ -104,7 +106,7 @@ exports.createMessage = (req, res, next) => {
 // ne contient pas d'image, sinon une erreur est remontée.
 exports.deleteMessage = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
+    const decodedToken = jwt.verify(token, SECRET_TOKEN);
     const userId = decodedToken.userId;
     const isAdmin = decodedToken.isAdmin;
   
@@ -137,7 +139,7 @@ exports.deleteMessage = (req, res, next) => {
 
   exports.likeDislikeMessage = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
+    const decodedToken = jwt.verify(token, SECRET_TOKEN);
     const userId = decodedToken.userId;
     const like = req.body.like;
   

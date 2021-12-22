@@ -83,6 +83,7 @@ button:hover {
 }
 textarea {
   padding: 0.5rem;
+  width: 50%;
 }
 textarea, input {
   border-radius: 10px;

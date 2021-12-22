@@ -1,7 +1,11 @@
 <template>
   <div class="forum">
     <div id="message-card" v-for="message in allMessages" :key="message.id">
-      <h1 class="title">{{ message.title }}</h1>
+      <div class="createdAt">
+        <i class="date">{{ moment(message.createdAt).fromNow() }}</i>
+        <i>{{ message.User.lastname }} {{ message.User.firstname }}</i>
+      </div>
+      <p class="title">{{ message.title }}</p>
       <div class="content">
         <img
           :src="message.image"
@@ -10,11 +14,7 @@
         /><br />
         {{ message.content }}
       </div>
-      <div class="createdAt">
-        <i>{{ moment(message.createdAt).fromNow() }}</i>
-        <i>{{ message.User.lastname }} {{ message.User.firstname }}</i>
-      </div>
-      <div>
+      <div class="com">
         <router-link class="one-message" :to="'/oneMessage/' + message.id">Voir les commentaires</router-link
         >
       </div>
@@ -51,7 +51,7 @@ export default {
   methods: {
     loadForum() {
       let token = localStorage.getItem("token");
-      let decodedToken = jwt.verify(token, "SECRET_TOKEN");
+      let decodedToken = jwt.verify(token, "vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375");
       console.log(decodedToken);
       axios
         .get("http://localhost:3000/api/messages/", {
@@ -59,6 +59,7 @@ export default {
         })
         .then((res) => {
           this.allMessages = res.data;
+          console.log(res.data);
           this.isAdmin = decodedToken.isAdmin;
         })
         .catch((error) => {
@@ -73,5 +74,35 @@ export default {
 </script>
 
 <style scoped>
-
+.createdAt {
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  text-align: left;
+  color: #FD2D01;
+}
+.date {
+  margin-right: 1rem;
+}
+.content {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+p {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+.com {
+  text-align: right;
+  margin-right: 1rem;
+}
+#message-card {
+  margin: 1rem;
+  padding: 0.5rem;
+  border: solid #091F43;
+  border-width: 2px;
+  width: auto;
+  color: #091F43;
+  border-radius: 50px;
+}
 </style>

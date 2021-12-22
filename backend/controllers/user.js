@@ -72,7 +72,7 @@ exports.login = (req, res, next) => {
             userId: user.id,
             lastname: user.lastname,
             firstname: user.firstname,
-            token: jwt.sign({ userId: user.id, isAdmin: user.isAdmin }, "SECRET_TOKEN", {
+            token: jwt.sign({ userId: user.id, isAdmin: user.isAdmin }, "vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375", {
               expiresIn: "24h",
             }),
           });

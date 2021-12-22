@@ -188,4 +188,21 @@ export default {
   u {
     font-weight: 700;
   }
+  .my-message {
+    margin: 1rem;
+    padding: 0.5rem;
+    border: solid #091F43;
+    border-width: 2px;
+    width: auto;
+    color: #091F43;
+    border-radius: 50px;
+  }
+  .deletebtn {
+    float: right;
+    margin-right: 1rem;
+    margin-top: 2rem;
+  }
+  h2 {
+    margin-top: 5rem;
+  }
 </style>

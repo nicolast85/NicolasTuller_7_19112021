@@ -25,3 +25,6 @@ module.exports = (sequelize, DataTypes) => {
   });
   return User;
 };
+
+//app.use('/api/auth', userRoutes);
+//app.use('/api/auth', profileRoutes);

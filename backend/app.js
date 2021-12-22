@@ -52,6 +52,7 @@ app.use((req, res, next) => {
   next();
 });
 
+
 // Middleware global pour notre application
 app.use(express.json());
 

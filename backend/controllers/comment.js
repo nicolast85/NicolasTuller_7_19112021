@@ -44,6 +44,7 @@ exports.getAllComments = (req, res, next) => {
 // Utilisation du module XSS sur le champs à remplir pour prévenir des attaques XSS.
 exports.createComment = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1];
+    
     const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
     const userId = decodedToken.userId;
   
