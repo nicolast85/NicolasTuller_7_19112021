@@ -2,8 +2,8 @@
   <div class="forum">
     <div id="message-card" v-for="message in allMessages" :key="message.id">
       <div class="createdAt">
-        <i class="date">{{ moment(message.createdAt).fromNow() }}</i>
-        <i>{{ message.User.lastname }} {{ message.User.firstname }}</i>
+        <div>{{ message.User.lastname }} {{ message.User.firstname }}</div>
+        <div class="date">{{ moment(message.createdAt).fromNow() }}</div>
       </div>
       <p class="title">{{ message.title }}</p>
       <div class="content">
@@ -15,11 +15,16 @@
         {{ message.content }}
       </div>
       <div class="com">
-        <router-link class="one-message" :to="'/oneMessage/' + message.id">Voir les commentaires</router-link
+        <router-link class="one-message" :to="'/oneMessage/' + message.id">
+        <i class="far fa-comments"></i>Voir les commentaires</router-link
         >
       </div>
+      <!--Bouton de suppression de message-->
       <div class="adminDelete" v-if="isAdmin == true">
         <deleteMessage :id="message.id" />
+      </div>
+      <div v-else-if="message.idUsers == userId">
+          <deleteMessage :idComm="message.id" />
       </div>
     </div>
   </div>
@@ -75,8 +80,9 @@ export default {
 
 <style scoped>
 .createdAt {
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   margin-left: 1rem;
+  margin-right: 1rem;
   text-align: left;
   color: #FD2D01;
 }
@@ -86,6 +92,9 @@ export default {
 .content {
   margin-bottom: 1rem;
   margin-left: 1rem;
+}
+.content img {
+  width: 250px;
 }
 p {
   font-weight: 700;
@@ -104,5 +113,8 @@ p {
   width: auto;
   color: #091F43;
   border-radius: 50px;
+}
+.far {
+  margin-right: 0.25rem;
 }
 </style>

@@ -83,16 +83,22 @@ button:hover {
 }
 textarea {
   padding: 0.5rem;
-  width: 50%;
+  width: 80%;
 }
 textarea, input {
   border-radius: 10px;
   border-color: #091F43;
   color: #091F43;
   font-family: 'Josefin Sans';
+  font-size: 1.5rem;
 }
 input {
   padding: 3px 13px 3px 13px;
   font-family: 'Josefin Sans';
 }
+@media all and (max-width: 700px) {
+    .logo {
+      width: 80%
+    }
+  }
 </style>

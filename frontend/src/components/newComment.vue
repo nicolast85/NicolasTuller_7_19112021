@@ -11,7 +11,7 @@
         />
       </div>
       <button type="submit" @click.prevent="buttonNewComment">
-      <i class="fas fa-comments"></i> Envoyer votre commentaire
+      <i class="far fa-comment"></i> Envoyez votre commentaire
       </button>
     </form>
     <div class="error" v-if="error">
@@ -67,5 +67,6 @@ button {
 input {
   width: 66%;
   height: 4rem;
+  font-size: 1.5rem;
 }
 </style>

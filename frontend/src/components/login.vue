@@ -83,7 +83,7 @@ export default {
     margin-right: 00.25rem;
   }
   button {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
   }
   .logo {
     width: 40%;
@@ -91,5 +91,11 @@ export default {
   .error {
     color: #FD2D01;
     margin-top: 0.5rem;
+  }
+  input {
+    margin-bottom: 0.5rem;
+  }
+  h1, h2 {
+    margin: 2rem;
   }
 </style>

@@ -24,7 +24,8 @@ export default {
       axios
         .delete("http://localhost:3000/api/messages/" + this.id, {
           headers: { Authorization: "Bearer " + token },
-        })
+          }
+        )
         .then(() => {
           alert("Votre message a bien été supprimé !");
           document.location.reload();

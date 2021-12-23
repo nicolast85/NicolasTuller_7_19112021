@@ -1,7 +1,7 @@
 <template>
   <div>
     <button type="submit" @click.prevent="deleteComment">
-      <i class="fas fa-trash-alt"></i> Supprimez le commentaire</button>
+      <i class="fas fa-comment-slash"></i> Supprimez le commentaire</button>
   </div>
 </template>
 
@@ -25,11 +25,7 @@ export default {
       let token = localStorage.getItem("token");
       axios
         .delete(
-          "http://localhost:3000/api/messages/" +
-            this.id +
-            "/comment/" +
-            this.idComm,
-          {
+          "http://localhost:3000/api/messages/" + this.id + "/comment/" + this.idComm,{
             headers: { Authorization: "Bearer " + token },
           }
         )

@@ -10,6 +10,10 @@
       </ul>
     </nav>
     <h1>Forum</h1>
+    <div class="rule">
+      <p>Bienvenue sur le Forum Groupomania,<br >
+      merci de suivre les règles et nos conditions d'utilisations.</p>
+    </div>
     <div>
       <newMessage />
     </div>
@@ -60,6 +64,20 @@ li>a {
   text-decoration: underline;
 }
 .logo {
-    width: 40%;
+  width: 40%;
+  }
+.rule {
+  margin: 1rem;
+  padding: 0.5rem;
+  border: solid #FD2D01;
+  width: auto;
+  color: #091F43;
+  border-radius: 50px;
+  font-weight: 700;
+}
+@media all and (max-width: 700px) {
+    .logo {
+      width: 80%
+    }
   }
 </style>
