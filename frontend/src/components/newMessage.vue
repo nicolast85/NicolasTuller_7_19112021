@@ -123,8 +123,8 @@ input {
   text-decoration: none;
   margin-bottom: 20px;
   width: 50%;
-  background-color: #091F43;
-  color: #FFD7D7;
+  background-color: #EFEFEF;
+  color: #091F43;
   font-family: 'Josefin Sans';
 }
 input:hover {

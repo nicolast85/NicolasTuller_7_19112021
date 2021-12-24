@@ -79,4 +79,7 @@ export default {
   .logo {
     width: 40%;
   }
+  input {
+    margin-bottom: 0.5rem;
+  }
 </style>

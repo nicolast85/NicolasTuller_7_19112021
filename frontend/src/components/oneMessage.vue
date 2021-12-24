@@ -18,9 +18,9 @@
           /><br />
           {{ oneMessage.content }}
         </div>
-      <div class="createdAt">
+        <div class="createdAt">
         <i class="date">{{ moment(oneMessage.createdAt).fromNow() }}</i>
-        <i>{{ oneMessage.idUsers }} {{ lastname }}</i>
+        <i>{{ oneMessage.User }}</i>
       </div>
       </div>
       <div class="post_com">
@@ -74,6 +74,7 @@ export default {
       createAt: "",
       updateAt: "",
       allComments: [],
+      User: [],
     };
   },
   methods: {
@@ -126,19 +127,27 @@ li {
 }
 .date {
   margin-right: 1rem;
+  margin-left: 1rem;
+}
+.user-name {
+  margin-left: 2rem;
 }
 .content {
   text-align: left;
   color: #FD2D01;
-  margin-left: 1.25rem;
-  margin-right: 1rem
+  background-color: rgb(224, 219, 219);
+  border-radius: 50px 50px 0 0;
+  margin-top: -0.25rem;
+  border-top: solid #091F43;
+  border-right: solid #091F43;
+  border-left: solid #091F43;
+  border-width: 2px;
 }
 .com {
   margin-top: 1rem;
 }
 #comment-card {
   margin: 1rem;
-  padding: 0.5rem;
   border: solid #091F43;
   border-width: 2px;
   width: auto;
@@ -159,6 +168,7 @@ li {
 }
 .content_message img {
   width: 300px;
+  margin-bottom: 0.75rem;
 }
 .post {
   margin: 1rem;

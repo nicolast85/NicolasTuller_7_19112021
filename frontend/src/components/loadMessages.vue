@@ -2,7 +2,7 @@
   <div class="forum">
     <div id="message-card" v-for="message in allMessages" :key="message.id">
       <div class="createdAt">
-        <div>{{ message.User.lastname }} {{ message.User.firstname }}</div>
+        <div class="name">{{ message.User.lastname }} {{ message.User.firstname }}</div>
         <div class="date">{{ moment(message.createdAt).fromNow() }}</div>
       </div>
       <p class="title">{{ message.title }}</p>
@@ -22,9 +22,6 @@
       <!--Bouton de suppression de message-->
       <div class="adminDelete" v-if="isAdmin == true">
         <deleteMessage :id="message.id" />
-      </div>
-      <div v-else-if="message.idUsers == userId">
-          <deleteMessage :idComm="message.id" />
       </div>
     </div>
   </div>
@@ -80,14 +77,21 @@ export default {
 
 <style scoped>
 .createdAt {
-  margin-top: 0.5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
   text-align: left;
   color: #FD2D01;
+  background-color: rgb(224, 219, 219);
+  border-radius: 50px 50px 0 0;
+  margin-top: -0.25rem;
+  border-top: solid #091F43;
+  border-right: solid #091F43;
+  border-left: solid #091F43;
+  border-width: 2px;
 }
 .date {
-  margin-right: 1rem;
+  margin-left: 1rem;
+}
+.name {
+  margin-left: 2rem;
 }
 .content {
   margin-bottom: 1rem;
@@ -95,6 +99,7 @@ export default {
 }
 .content img {
   width: 250px;
+  margin-bottom: 0.75rem;
 }
 p {
   font-weight: 700;
@@ -107,7 +112,6 @@ p {
 }
 #message-card {
   margin: 1rem;
-  padding: 0.5rem;
   border: solid #091F43;
   border-width: 2px;
   width: auto;

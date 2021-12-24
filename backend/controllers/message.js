@@ -58,6 +58,12 @@ exports.getOneMessage = (req, res, next) => {
         "updatedAt",
       ],
       where: { id: req.params.id },
+      include: [
+        {
+          model: models.User,
+          attributes: ["lastname", "firstname"],
+        },
+      ],
     })
       .then((message) => {res.status(200).json(message);})
       .catch((error) => {res.status(404).json({error: error,});

@@ -44,5 +44,6 @@ export default {
 <style scoped>
 button {
   text-align: right;
+  margin-bottom: 0.5rem;
 }
 </style>
