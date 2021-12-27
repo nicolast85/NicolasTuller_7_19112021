@@ -1,22 +1,27 @@
 <template>
   <div>
+    <!--Logo-->
     <nav id="nav">
       <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
+      <!--Menu de navigation-->
       <ul class="links">
-        <li><a to="/signup" class="link" title="Revenir à l'écran d'Inscription" v-on:click="Logout()"><i class="fas fa-globe"></i>Accueil</a></li>
-        <li><router-link to="/profile" class="link" title="Aller sur votre Profil"><i class="fas fa-user-circle"></i>Votre Profil</router-link></li>
-        <li><a to="/login" class="link" title="Revenir à l'écran de Connexion" v-on:click="Logout()">
+        <li><a to="/signup" class="link" title="Revenir à l'écran d'Inscription" v-on:click="Logout()">
         <i class="fas fa-exclamation-triangle"></i>Déconnexion</a></li>
+        <li><router-link to="/profile" class="link" title="Aller sur votre Profil"><i class="fas fa-user-circle">
+          </i>Votre Profil</router-link></li>
       </ul>
     </nav>
+    <!--Bannière-->
     <h1>Forum</h1>
     <div class="rule">
       <p>Bienvenue sur le Forum Groupomania,<br >
       merci de suivre les règles et nos conditions d'utilisations.</p>
     </div>
+    <!--Création de nouveau message-->
     <div>
       <newMessage />
     </div>
+    <!--Chargement des messages du forum-->
     <div>
       <loadMessages />
     </div>

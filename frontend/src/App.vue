@@ -1,6 +1,8 @@
 <template>
+    <!--Application-->
     <div id="app">
     <router-view />
+    <!--Footer-->
     <footer>
       <p class="trade">Copyright © 2021 Tous droits réservés <br>
       <i class="fas fa-globe"></i> Groupomania <a href="#CGU" title="Conditions d'utilisations">
@@ -29,76 +31,80 @@ export default {
 
 <style lang="scss">
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,600;0,700;1,600&display=swap');
+@media (min-width: 50px) {
 
-#app {
-  font-family: 'Josefin Sans', Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #091F43;
-  background-image: url("./assets/logo/icon.png");
-  font-size: 1.25rem;
-}
-.fab {
-  margin-right: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-.fas {
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,600;0,700;1,600&display=swap');
+
+  #app {
+    font-family: 'Josefin Sans', Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #091F43;
+    background-image: url("./assets/logo/icon.png");
+    background-repeat: repeat;
+    font-size: 1.25rem;
+  }
+  .fab {
+    margin-right: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .fas {
   margin-right: 0.25rem;
-}
-.trade {
-  margin-bottom: 0.5rem;
-  margin-top: 5rem;
-}
-.trade .fas {
-  padding-top: 0.5rem;
-}
-.logo {
-    width: 40%;
   }
-a {
-  text-decoration: none;
-  color: #091F43;
-}
-a:hover {
-  text-decoration: underline;
-  color: #D1515A;
-}
-button {
-  border-radius: 75px;
-  background-color: #091F43;
-  color: #FFD7D7;
-  border-color: #091F43;
-  box-shadow: 5px 5px 5px #fff;
-  padding: 3px 13px 3px 13px;
-  font-size: 1rem;
-  font-weight: 700;
-}
-button:hover {
-  background-color: #D1515A;
-  color: #fff;
-  border-color: #D1515A;
-  box-shadow: 5px 5px 5px #D1515A;
-}
-textarea {
-  padding: 0.5rem;
-  width: 80%;
-}
-textarea, input {
-  border-radius: 10px;
-  border-color: #091F43;
-  color: #091F43;
-  font-family: 'Josefin Sans';
-  font-size: 1.5rem;
-}
-input {
-  padding: 3px 13px 3px 13px;
-  font-family: 'Josefin Sans';
-}
-@media all and (max-width: 700px) {
-    .logo {
-      width: 80%
+  .trade {
+    margin-bottom: 0.5rem;
+    margin-top: 5rem;
+  }
+  .trade .fas {
+    padding-top: 0.5rem;
+  }
+  .logo {
+    width: 80%;
     }
+  a {
+    text-decoration: none;
+    color: #091F43;
   }
+  a:hover {
+    text-decoration: underline;
+    color: #D1515A;
+  }
+  button {
+    border-radius: 75px;
+    background-color: #091F43;
+    color: #FFD7D7;
+    border-color: #091F43;
+    box-shadow: 5px 5px 5px #fff;
+    padding: 3px 13px 3px 13px;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  button:hover {
+    background-color: #D1515A;
+    color: #fff;
+    border-color: #D1515A;
+    box-shadow: 5px 5px 5px #D1515A;
+  }
+  textarea {
+    padding: 0.5rem;
+    width: 80%;
+  }
+  textarea, input {
+    border-radius: 10px;
+    border-color: #091F43;
+    color: #091F43;
+    font-family: 'Josefin Sans';
+    font-size: 1.5rem;
+  }
+  input {
+    padding: 3px 13px 3px 13px;
+    font-family: 'Josefin Sans';
+  }
+}
+@media (min-width: 800px) {
+  .logo {
+    width: 40%
+  }
+}
 </style>

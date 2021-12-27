@@ -1,12 +1,19 @@
 <template>
   <div>
     <nav id="nav">
+      <!--Logo-->
+      <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
+      <!--Menu de navigation-->
       <ul class="links">
-        <li>
-          <router-link to="/forum" title="Revenir au Forum">Retour</router-link>
-        </li>
+        <li><router-link to="/login" class="link" title="Déconnexion" v-on:click="Logout()">
+          <i class="fas fa-exclamation-triangle"></i>Déconnexion</router-link></li>
+        <li><router-link to="/forum" title="Revenir au Forum"><i class="fas fa-reply">
+          </i>Retour au Forum</router-link></li>
+        <li><router-link to="/profile" class="link" title="Aller sur votre Profil"><i class="fas fa-user-circle">
+          </i>Votre Profil</router-link></li>
       </ul>
     </nav>
+    <!--Structure du message-->
     <div id="oneMessage">
       <div class="post">
         <h1 class="title">{{ oneMessage.title }}</h1>
@@ -23,6 +30,7 @@
         <i>{{ oneMessage.User }}</i>
       </div>
       </div>
+      <!--Commentaires du message-->
       <div class="post_com">
       <div id="comment-card" v-for="comment in allComments" :key="comment.id">
         <div class="content">
@@ -40,6 +48,7 @@
       </div>
       </div>
     </div>
+    <!--Nouveau commentaire-->
     <div class="commentaire">
       <newComment :id="id" />
     </div>
@@ -116,13 +125,19 @@ export default {
     this.loadComments();
     this.loadOneMessage();
   },
+  Logout() {
+    localStorage.clear();
+    this.$router.push("/");
+  },
 };
 </script>
 
 <style scoped>
+@media (min-width: 50px) {
 li {
   text-align-last: right;
   margin-right: 1rem;
+  margin-top: 0.5rem;
   list-style-type: none;
 }
 .date {
@@ -182,5 +197,15 @@ li {
 }
 .title {
   margin-top: 1rem;
+}
+}
+@media (min-width: 800px) {
+  .content_message img {
+    width: 400px;
+  }
+  .post, #comment-card {
+    margin-right: 3rem;
+    margin-left: 3rem;
+  }
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div class="login">
     <nav id="nav">
+      <!--Logo-->
       <img class="logo" src="../assets/logo/icon-left-font.png" alt="logo"/>
+      <!--Menu de navigation-->
       <ul class="links">
         <li>
           <router-link to="/" class="title" title="Pas encore inscrit ? Allez y !">
@@ -9,8 +11,10 @@
         </li>
       </ul>
     </nav>
+    <!--Bannière-->
     <h1>Connection au forum Groupomania</h1>
     <h2>Déjà inscrits !</h2>
+    <!--Formulaire de Login à remplir-->
     <form method="post" @submit.prevent="buttonLogin">
       <div class="field">
         <label for="email"></label><i class="fas fa-at"></i>
@@ -20,8 +24,10 @@
         <label for="password"></label><i class="fas fa-key"></i>
         <input type="password" placeholder="Mot de passe" v-model="password"/>
       </div>
+      <!--Bouton de connection-->
       <button type="submit"><i class="fas fa-wifi"></i>Se connecter</button>
     </form>
+    <!--error-->
     <div class="error" v-if="error">
       {{ error.error }}
     </div>
@@ -84,9 +90,6 @@ export default {
   }
   button {
     margin-top: 1rem;
-  }
-  .logo {
-    width: 40%;
   }
   .error {
     color: #FD2D01;

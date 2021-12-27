@@ -1,4 +1,5 @@
 <template>
+  <!--Bouton suppression de message-->
   <div>
     <button type="submit" @click.prevent="deleteMessage">
       <i class="far fa-trash-alt"></i> Supprimez le message</button>

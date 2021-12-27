@@ -2,6 +2,7 @@
   <div class="forum">
     <form method="post" @submit.prevent="buttonNewMessage">
       <h2>Envoyez un message <i class="far fa-envelope"></i></h2>
+      <!--Formulaire d'envoie de message-->
       <div>
         <label for="title"></label>
         <input class="title" type="title" id="title" placeholder="Votre titre !" v-model="title" />
@@ -17,19 +18,15 @@
           v-model="content"
         />
       </div>
-
-    <p>
-  <label class="inputfile"><input type="file" name="file" ref="file" accept=".jpg, .jpeg, .png, .gif"  @change="selectFile()" />
-  <i class="fas fa-file-import"></i>Sélectionnez l'image à uploader (JPG,PNG,GIF)</label><span></span>
-</p> 
-
+      <!--Bouton de séléction d'image à envoyer-->
       <div id="join">
         <label class="selection" for="File">(Sélectionnez l'image à uploader [JPG,PNG,GIF])<br >
-        <i class="fas fa-file-import"></i></label>
+          <i class="fas fa-file-import"></i></label>
         <input type="file" ref="file" accept=".jpg, .jpeg, .png, .gif"  @change="selectFile()" />
       </div>
-
+      <!--Bouton d'envoie de message-->
       <button type="submit" @click.prevent="buttonNewMessage"><i class="fas fa-paper-plane" ></i>Envoyez</button>
+      <!--error-->
       <div class="error" v-if="error">
         {{ error.error }}
       </div>
@@ -80,14 +77,6 @@ export default {
     },
   },
 };
-"use strict";
-const inputfiles = document.querySelectorAll('.inputfile input');
-inputfiles.forEach( function(inputfile){
-  inputfile.addEventListener('change',function(){
-    console.log( inputfile.parentNode.children );
-    inputfile.parentNode.nextSibling.textContent = inputfile.value.replace(/^.*[\\/]/, '');
-  });
-});
 </script>
 
 <style scoped>

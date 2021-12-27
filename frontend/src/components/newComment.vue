@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--Structure du commentaire-->
     <form method="post" @submit.prevent="buttonNewComment">
       <div>
         <label for="comment"></label>
@@ -10,10 +11,12 @@
           v-model="comment"
         />
       </div>
+      <!--Bouton d'envoie de commentaire-->
       <button type="submit" @click.prevent="buttonNewComment">
       <i class="far fa-comment"></i> Envoyez votre commentaire
       </button>
     </form>
+    <!--error-->
     <div class="error" v-if="error">
       {{ error.error }}
     </div>

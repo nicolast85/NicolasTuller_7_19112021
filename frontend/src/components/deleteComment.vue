@@ -1,4 +1,5 @@
 <template>
+  <!--Bouton suppression de commentaire-->
   <div>
     <button type="submit" @click.prevent="deleteComment">
       <i class="fas fa-comment-slash"></i> Supprimez le commentaire</button>

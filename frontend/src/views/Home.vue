@@ -1,7 +1,9 @@
 <template>
   <div>
     <nav id="nav">
+      <!--Logo-->
       <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
+      <!--Menu de navigation-->
       <ul class="links">
         <li>
           <router-link to="/login" class="title" title="Déjà inscrits ? Connectez vous !">
@@ -9,6 +11,7 @@
         </li>
       </ul>
     </nav>
+    <!--Chemin pour s'inscrire-->
     <signup />
   </div>
 </template>

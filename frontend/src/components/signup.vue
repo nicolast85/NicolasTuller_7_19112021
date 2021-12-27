@@ -1,7 +1,9 @@
 <template>
     <div class="signup">
+    <!--Bannière-->
     <h1>Inscription au forum Groupomania</h1>
     <h2>Pas encore inscrits ?</h2>
+    <!--Formulaire d'inscription au Forum Groupomania-->
     <form method="post" @submit.prevent="buttonSignup">
       <div class="field">
         <label for="lastname"></label><i class="fas fa-users"></i>
@@ -19,12 +21,14 @@
         <label for="password"></label><i class="fas fa-key"></i>
         <input type="password" id="password-input" placeholder="Mot de passe" v-model="password"/>
       </div>
+      <!--Bouton d'inscription-->
       <button type="submit" title="Pas encore inscrits ? Remplissez le formulaire !" @click.prevent="buttonSignup">
         <i class="fas fa-file-signature"></i>Inscription</button>
     </form>
-    <div class="error" v-if="error">
-      {{ error.error }}
-    </div>
+    <!--error-->
+      <div class="error" v-if="error">
+        {{ error.error }}
+      </div>
     </div>
 </template>
 
@@ -66,20 +70,17 @@ export default {
 </script>
 
 <style scoped>
-  .field {
-    margin-bottom: 0.25rem;
-  }
-  .fas {
-    margin-right: 0.25rem;
-  }
-  button {
-    cursor: pointer;
-    margin-top: 0.5rem;
-  }
-  .logo {
-    width: 40%;
-  }
-  input {
-    margin-bottom: 0.5rem;
-  }
+.field {
+  margin-bottom: 0.25rem;
+}
+.fas {
+  margin-right: 0.25rem;
+}
+button {
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+input {
+  margin-bottom: 0.5rem;
+}
 </style>
