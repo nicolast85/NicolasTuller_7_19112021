@@ -89,7 +89,8 @@ export default {
   methods: {
     loadOneMessage() {
       let token = localStorage.getItem("token");
-      let decodedToken = jwt.verify(token, "vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375");
+      const SECRET_TOKEN ="vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375";
+      let decodedToken = jwt.verify(token, SECRET_TOKEN);
       axios
         .get("http://localhost:3000/api/messages/" + this.id, {
           headers: { Authorization: "Bearer " + token },
@@ -105,7 +106,8 @@ export default {
     },
     loadComments() {
       let token = localStorage.getItem("token");
-      let decodedToken = jwt.verify(token, "vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375");
+      const SECRET_TOKEN ="vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375";
+      let decodedToken = jwt.verify(token, SECRET_TOKEN);
       axios
         .get("http://localhost:3000/api/messages/" + this.id + "/comments/", {
           headers: { Authorization: "Bearer " + token },
@@ -145,7 +147,7 @@ li {
   margin-left: 1rem;
 }
 .user-name {
-  margin-left: 2rem;
+  margin-left: 2.5rem;
 }
 .content {
   text-align: left;

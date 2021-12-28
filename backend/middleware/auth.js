@@ -1,8 +1,6 @@
 // Package pour pouvoir vérifier les tokens d'authentification
 const jwt = require('jsonwebtoken');
 
-const SECRET_TOKEN ="vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375"
-//const SECRET_TOKEN="SECRET_TOKEN"
 // Module dotenv pour éviter stocker des informations sensibles au sein de notre application
 require('dotenv').config();
 
@@ -14,19 +12,18 @@ require('dotenv').config();
 // Extraction de l'ID utilisateur de notre token, si la demande contient un ID utilisateur nous le comparons à celui 
 // extrait du token :
 // - s'ils sont différents, nous générons une erreur
-// - dans le cas contraire, tout fonctionne et notre utilisateur est authentifié. 
-// Nous passons l'exécution à l'aide de la fonction next() .
+// - dans le cas contraire, on vérifie s'il possède le statue Admin, 
+// - si tout fonctionne, notre utilisateur est authentifié. 
+// Nous passons l'exécution à l'aide de la fonction next().
 module.exports = (req, res, next) => {
    console.log("req",req.headers);
    try {
     const token = req.headers.authorization.split(' ')[1];
     console.log("token",token)
-    //const verifyToken = jwt.verify(token, process.env.SECRET_TOKEN);
-    const verifyToken = jwt.verify(token, SECRET_TOKEN);
+    const verifyToken = jwt.verify(token, process.env.SECRET_TOKEN);
     console.log("verifyToken",verifyToken)
-
     const userId = verifyToken.userId;
-    const isAdmin = verifyToken.isAdmin; // --- verifytoken n'existe pas fait très attention sur le nommage des variables dans ce cas c'est un T majuscule
+    const isAdmin = verifyToken.isAdmin;
    //vérifie si userId correspond à celui du token si ok next
     if (req.body.userId && req.body.userId !== userId) {
       console.log("Excecution 1")

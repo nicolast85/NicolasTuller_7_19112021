@@ -2,9 +2,9 @@
 // empêcher les attaques de type spam avec des requêtes en boucle
 const rateLimit = require("express-rate-limit");
 
-// L'utilisateur pourra faire 1000 requêtes toutes les 20 minutes
+// L'utilisateur pourra faire 1000 requêtes toutes les 15 minutes
 const limiter = rateLimit({
-  windowMs: 20 * 60 * 1000,
+  windowMs: 15 * 60 * 1000,
   max: 1000,
 });
 

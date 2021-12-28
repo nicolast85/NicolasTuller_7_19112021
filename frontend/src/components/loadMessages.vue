@@ -54,7 +54,8 @@ export default {
   methods: {
     loadForum() {
       let token = localStorage.getItem("token");
-      let decodedToken = jwt.verify(token, "vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375");
+      const SECRET_TOKEN ="vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375";
+      let decodedToken = jwt.verify(token, SECRET_TOKEN);
       console.log(decodedToken);
       axios
         .get("http://localhost:3000/api/messages/", {
@@ -93,7 +94,7 @@ export default {
     margin-left: 1rem;
   }
   .name {
-    margin-left: 2rem;
+    margin-left: 2.5rem;
   }
   .content {
     margin-bottom: 1rem;

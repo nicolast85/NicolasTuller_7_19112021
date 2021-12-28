@@ -11,8 +11,8 @@ require('dotenv').config();
 const xss = require('xss')
 
 // Get /comments :
-// Méthode findAll() dans notre Models afin de renvoyer un tableau contenant toutes les comments
-// dans notre base de données.
+// Méthode findAll() dans notre Models afin de renvoyer un tableau contenant toutes les commentaires
+// d'un message dans notre base de données.
 exports.getAllComments = (req, res, next) => {
     models.Comment.findAll({
       attributes: [
@@ -43,8 +43,7 @@ exports.getAllComments = (req, res, next) => {
 // On lui demande de remplir le champs du commentaire sinon error 400
 // Utilisation du module XSS sur le champs à remplir pour prévenir des attaques XSS.
 exports.createComment = (req, res, next) => {
-    const token = req.headers.authorization.split(" ")[1];
-    
+    const token = req.headers.authorization.split(" ")[1]; 
     const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
     const userId = decodedToken.userId;
   
@@ -65,6 +64,7 @@ exports.createComment = (req, res, next) => {
 
 // Delete /comment/:id :
 // On vérifie que l'auteur soit bien le meme que celui qui a fait la requête, ou que se soit un Admin
+// Si oui, le commentaire peut être supprimé
 exports.deleteComment = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);

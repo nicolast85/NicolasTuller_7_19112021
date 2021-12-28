@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 // Get /profile/:id :
-// Méthode findOne() dans notre Models pour trouver le profile user unique ayant le même _id que le 
+// Méthode findOne() dans notre Models pour trouver le profile user unique ayant le même id que le 
 // paramètre de la requête. Ce profile user est ensuite retourné dans une Promise et envoyée au front-end,
 // si aucun profile user n'est trouvé ou si une erreur se produit, nous envoyons une erreur 404 au front-end, 
 // avec l'erreur générée.

@@ -54,35 +54,41 @@ export default {
 </script>
 
 <style scoped>
-li {
-  cursor : pointer;
-  text-decoration: none;
-  text-align-last: right;
-  margin-right: 1rem;
-  list-style-type: none;
-  margin-top: 0.5rem;
-}
-li>a {
-  text-decoration: none;
-}
-.link:hover {
-  text-decoration: underline;
-}
-.logo {
-  width: 40%;
+@media (min-width: 50px) {
+  li {
+    cursor : pointer;
+    text-decoration: none;
+    text-align-last: right;
+    margin-right: 1rem;
+    list-style-type: none;
+    margin-top: 0.5rem;
   }
-.rule {
-  margin: 1rem;
-  padding: 0.5rem;
-  border: solid #FD2D01;
-  width: auto;
-  color: #091F43;
-  border-radius: 50px;
-  font-weight: 700;
+  li>a {
+    text-decoration: none;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+  .logo {
+    width: 80%;
+    }
+  .rule {
+    margin: 1rem;
+    padding: 0.5rem;
+    border: solid #FD2D01;
+    width: auto;
+    color: #091F43;
+    border-radius: 50px;
+    font-weight: 700;
+  }
 }
-@media all and (max-width: 700px) {
+@media (min-width: 800px) {
     .logo {
       width: 80%
+    }
+    .rule {
+      margin-right: 4rem;
+      margin-left: 4rem;
     }
   }
 </style>

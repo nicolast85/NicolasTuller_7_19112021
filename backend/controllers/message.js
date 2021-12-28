@@ -1,6 +1,6 @@
 // Besoin de notre model car on va enregistrer et lire des Models dans ses middlewares.
 const models = require('../models');
-const SECRET_TOKEN ="vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375"
+
 // Package pour pouvoir créer et vérifier les tokens d'authentification
 const jwt = require('jsonwebtoken');
 
@@ -42,7 +42,7 @@ exports.getAllMessage = (req, res, next) => {
   };
 
 // Get /messages/:id :
-// Méthode findOne() dans notre Models pour trouver le message unique ayant le même _id que le 
+// Méthode findOne() dans notre Models pour trouver le message unique ayant le même id que le 
 // paramètre de la requête. Ce message est ensuite retournée dans une Promise et envoyée au front-end,
 // si aucun message n'est trouvé ou si une erreur se produit, nous envoyons une erreur 404 au front-end, 
 // avec l'erreur générée.
@@ -81,7 +81,7 @@ exports.getOneMessage = (req, res, next) => {
 exports.createMessage = (req, res, next) => {
     console.log("decodedToken",req.headers)
     const token = req.headers.authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, SECRET_TOKEN);
+    const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
     console.log("decodedToken",decodedToken)
     const userId = decodedToken.userId;
   
@@ -112,7 +112,7 @@ exports.createMessage = (req, res, next) => {
 // ne contient pas d'image, sinon une erreur est remontée.
 exports.deleteMessage = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, SECRET_TOKEN);
+    const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
     const userId = decodedToken.userId;
     const isAdmin = decodedToken.isAdmin;
   
@@ -142,84 +142,3 @@ exports.deleteMessage = (req, res, next) => {
       .catch((error) => {res.status(400).json({error: error,});
       });
   };
-
-  exports.likeDislikeMessage = (req, res, next) => {
-    const token = req.headers.authorization.split(" ")[1];
-    const decodedToken = jwt.verify(token, SECRET_TOKEN);
-    const userId = decodedToken.userId;
-    const like = req.body.like;
-  
-    if (like === 1) {
-      Message.updateOne(
-        { id: messageId },
-        {
-          $push: { usersLiked: userId }, // On ajoute le User a usersLiked dans la table message
-          $inc: { likes: +1 },
-        }
-      );
-      models.Message.findOne({
-        where: { id: req.params.id },
-      }).then((message) => {
-        if (message.id === userId || isAdmin === true) {
-          message
-            .update({
-              lastname: req.body.lastname,
-              firstname: req.body.firstname,
-            })
-            .then(() => res.status(200).json({ message: "Profile modifié !" }))
-            .catch((error) =>
-              res
-                .status(400)
-                .json({ error: "Impossible de mettre à jour votre profile !" })
-            );
-        }
-      });
-    }
-
-// exports.likeDislikeMessage = (req, res, next) => {
-    // Déclararion des variables nécessaires
-//    let like = req.body.like
-//    let userId = req.body.userId
-//    let messageId = req.params.id
-    
-    // L'instruction switch évalue une expression et, selon le résultat obtenu et le cas associé, exécute les
-    // instructions correspondantes.
-//    switch (like) {
-//      case 1 :
-          /// Ajout d'un Like pour une messageId précise en fonction de l'userId
-//          models.Message.updateOne({ id: messageId }, { $push: { usersLiked: userId }, $inc: { likes: +1 }})
-//            .then(() => res.status(200).json({ message: `J'aime` }))
-//            .catch((error) => res.status(400).json({ error }))
-        // L'instruction break permet de terminer la boucle en cours ou l'instruction switch en cours 
-        // et de passer le contrôle du programme à l'instruction suivant l'instruction terminée.   
-//        break;
-      
-//      case 0 :
-//          models.Message.findOne({ id: messageId })
-//            .then((message) => {
-      // Suppression d'un Like pour un messageId précis en fonction de l'userId si message.usersLiked existe
-//              if (message.usersLiked.includes(userId)) { 
-//                models.Message.updateOne({ id: messageId }, { $pull: { usersLiked: userId }, $inc: { likes: -1 }})
-//                 .then(() => res.status(200).json({ message: `Suppression de J'aime` }))
-//                  .catch((error) => res.status(400).json({ error }))
-              }
-      // Suppression d'un DisLike pour un messageId précis en fonction de l'userId si message.usersDisLiked existe
-//              if (message.usersDisliked.includes(userId)) { 
-//                models.Message.updateOne({ id: messageId }, { $pull: { usersDisliked: userId }, $inc: { dislikes: -1 }})
-//                 .then(() => res.status(200).json({ message: `Suppression de Je n'aime pas` }))
-//                  .catch((error) => res.status(400).json({ error }))
-//              }
-//            })
-//            .catch((error) => res.status(404).json({ error }))
-//       break;
-      // Ajout d'un DisLike pour un messageId précis en fonction de l'userId
-//      case -1 :
-//          models.Message.updateOne({ id: messageId }, { $push: { usersDisliked: userId }, $inc: { dislikes: +1 }})
-//            .then(() => { res.status(200).json({ message: `Je n'aime pas` }) })
-//            .catch((error) => res.status(400).json({ error }))
-//        break;
-        
-//        default:
-//          console.log(error);
-//    }
-//  }

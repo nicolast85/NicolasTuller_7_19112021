@@ -19,7 +19,7 @@
     </div>
     <!--Données du profil-->
       <div class="info">
-        <p>Information :</p>
+        <p>Informations :</p>
       </div>
       <p> 
         <u><i class="fas fa-at"></i> Mail </u>: {{ dataProfile.email }}
@@ -119,6 +119,7 @@ export default {
         })
         .then((res) => {
           this.messagesProfile = res.data;
+          console.log(res.data);
         })
         .catch((error) => {
           console.log({ error });
