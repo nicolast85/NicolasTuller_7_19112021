@@ -43,6 +43,7 @@ export default {
     color: #091F43;
     background-image: url("./assets/logo/icon.png");
     background-repeat: repeat;
+    background-position: top;
     font-size: 1.25rem;
   }
   .fab {
@@ -101,6 +102,11 @@ export default {
     padding: 3px 13px 3px 13px;
     font-family: 'Josefin Sans';
   }
+}
+@media (min-width: 400px) {
+    #app {
+      background-position: center;
+    }
 }
 @media (min-width: 800px) {
   .logo {
