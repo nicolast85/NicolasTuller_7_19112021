@@ -76,6 +76,7 @@ export default {
       id: this.$route.params.id,
       userId: localStorage.getItem("id"),
       oneMessage: [],
+      User: [],
       idUsers: "",
       title: "",
       content: "",
@@ -83,7 +84,6 @@ export default {
       createAt: "",
       updateAt: "",
       allComments: [],
-      User: [],
     };
   },
   methods: {

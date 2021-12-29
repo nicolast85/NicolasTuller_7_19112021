@@ -56,6 +56,7 @@
     <h2>Tous vos messages :</h2>
     <div class="my-messages">
       <div class="my-message" v-for="myMessage in messagesProfile" :key="myMessage.id">
+        <div class="date">{{ moment(myMessage.createdAt).fromNow() }}</div>
         <h3>{{ myMessage.title }}</h3>
         <img :src="myMessage.image" :alt="myMessage.image" v-if="myMessage.image != null"/><br />
         <p>{{ myMessage.content }}</p>
@@ -73,6 +74,7 @@
 
 <script>
 import deleteMessage from "./deleteMessage";
+let moment = require("moment");
 import axios from "axios";
 export default {
   name: "profile",
@@ -92,6 +94,8 @@ export default {
       email: "",
       lastname: "",
       firstname: "",
+      createAt: "",
+      moment: moment,
     };
   },
   methods: {
@@ -239,6 +243,12 @@ export default {
   }
   .info {
     font-weight: 700;
+  }
+  .date {
+    color:#FD2D01;
+    display: flex;
+    justify-content: left;
+    margin-left: 2rem;
   }
 }
 @media (min-width: 800px) {
