@@ -26,13 +26,7 @@ exports.signup = (req, res, next) => {
           firstname: req.body.firstname,
           password: hash,
           isAdmin: false,
-        })
-        .then((user) => {
-          res.status(201).json({
-            userId: user.id,
-            isAdmin: user.isAdmin,
-        });
-        })
+        })        
         .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
         .catch((error) => res.status(400).json({ error: error }));
     })

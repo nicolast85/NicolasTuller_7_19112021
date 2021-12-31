@@ -27,8 +27,7 @@
         </div>
         <div class="createdAt">
         <i class="date">{{ moment(oneMessage.createdAt).fromNow() }}</i>
-        <i>{{ oneMessage.User }}</i>
-      </div>
+        </div>
       </div>
       <!--Commentaires du message-->
       <div class="post_com">

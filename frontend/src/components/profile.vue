@@ -36,11 +36,11 @@
     <form method="post" @submit.prevent="updateProfile">
       <div>
         <label for="lastname"></label>
-        <input type="lastname" id="lastname" placeholder="Nom" v-model="lastname" />
+        <input type="text" id="lastname" placeholder="Nom" v-model="lastname" />
       </div>
       <div>
         <label for="firstname"></label>
-        <input type="firstname" id="firstname" placeholder="Prénom" v-model="firstname"/>
+        <input type="text" id="firstname" placeholder="Prénom" v-model="firstname"/>
       </div>
       <button type="submit" @click.prevent="updateProfile">
         <i class="fas fa-exclamation"></i>Modifiez votre profil</button>
@@ -59,7 +59,7 @@
         <div class="date">{{ moment(myMessage.createdAt).fromNow() }}</div>
         <h3>{{ myMessage.title }}</h3>
         <img :src="myMessage.image" :alt="myMessage.image" v-if="myMessage.image != null"/><br />
-        <p>{{ myMessage.content }}</p>
+        <span>{{ myMessage.content }}</span>
         <div class="com">
           <router-link class="one-message" :to="'/oneMessage/' + myMessage.id">
           <i class="far fa-comments"></i>Voir les commentaires</router-link>
@@ -191,8 +191,8 @@ export default {
     text-decoration: underline;
   }
   p {
-    text-align : left;
     margin-left : 1rem;
+    text-align: left;
   }
   u {
     text-decoration: none;

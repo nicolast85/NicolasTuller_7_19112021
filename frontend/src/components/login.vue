@@ -18,11 +18,11 @@
     <form method="post" @submit.prevent="buttonLogin">
       <div class="field">
         <label for="email"></label><i class="fas fa-at"></i>
-        <input type="email" placeholder="email@exemple.fr" v-model="email"/>
+        <input type="email" id="email" placeholder="email@exemple.fr" v-model="email"/>
       </div>
       <div class="field">
         <label for="password"></label><i class="fas fa-key"></i>
-        <input type="password" placeholder="Mot de passe" v-model="password"/>
+        <input type="password" id="password" placeholder="Mot de passe" v-model="password"/>
       </div>
       <!--Bouton de connection-->
       <button type="submit"><i class="fas fa-wifi"></i>Se connecter</button>

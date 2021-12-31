@@ -7,11 +7,11 @@
     <form method="post" @submit.prevent="buttonSignup">
       <div class="field">
         <label for="lastname"></label><i class="fas fa-users"></i>
-        <input type="text" id="nom" placeholder="Nom" v-model="lastname"/>
+        <input type="text" id="lastname" placeholder="Nom" v-model="lastname"/>
       </div>
       <div class="field">
         <label for="firsname"></label><i class="fas fa-user"></i>
-        <input type="text" id="prénom" placeholder="Prénom" v-model="firstname"/>
+        <input type="text" id="firsname" placeholder="Prénom" v-model="firstname"/>
       </div>
       <div class="field">
         <label for="email"></label><i class="fas fa-at"></i>
@@ -19,7 +19,7 @@
       </div>
       <div class="field">
         <label for="password"></label><i class="fas fa-key"></i>
-        <input type="password" id="password-input" placeholder="Mot de passe" v-model="password"/>
+        <input type="password" id="password" placeholder="Mot de passe" v-model="password"/>
       </div>
       <!--Bouton d'inscription-->
       <button type="submit" title="Pas encore inscrits ? Remplissez le formulaire !" @click.prevent="buttonSignup">
@@ -82,5 +82,9 @@ button {
 }
 input {
   margin-bottom: 0.5rem;
+}
+.error {
+  color: #FD2D01;
+  margin-top: 0.5rem;
 }
 </style>
