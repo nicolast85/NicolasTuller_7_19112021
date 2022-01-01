@@ -1,7 +1,7 @@
 <template>
   <div class="forum">
     <!--Structure d'un message-->
-    <div id="message-card" v-for="message in allMessages" :key="message.id">
+    <div class="message-card" v-for="message in allMessages" :key="message.id">
       <div class="createdAt">
         <div class="name">{{ message.User.lastname }} {{ message.User.firstname }}</div>
         <div class="date">{{ moment(message.createdAt).fromNow() }}</div>
@@ -113,7 +113,7 @@ export default {
     text-align: right;
     margin-right: 2rem;
   }
-  #message-card {
+  .message-card {
     margin: 1rem;
     border: solid #091F43;
     border-width: 2px;
@@ -129,7 +129,7 @@ export default {
   .content img {
     width: 400px;
   }
-  #message-card {
+  .message-card {
     margin-right: 3rem;
     margin-left: 3rem;
   }

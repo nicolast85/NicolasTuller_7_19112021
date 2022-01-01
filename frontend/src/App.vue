@@ -1,7 +1,7 @@
 <template>
     <!--Application-->
-    <div id="app">
-    <router-view />
+    <div class="app">
+    <router-view></router-view>
     <!--Footer-->
     <footer>
       <p class="trade">Copyright © 2021 Tous droits réservés <br>
@@ -35,7 +35,7 @@ export default {
 
   @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,600;0,700;1,600&display=swap');
 
-  #app {
+  .app {
     font-family: 'Josefin Sans', Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -104,7 +104,7 @@ export default {
   }
 }
 @media (min-width: 400px) {
-    #app {
+    .app {
       background-position: center;
     }
 }

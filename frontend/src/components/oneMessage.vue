@@ -31,7 +31,7 @@
       </div>
       <!--Commentaires du message-->
       <div class="post_com">
-      <div id="comment-card" v-for="comment in allComments" :key="comment.id">
+      <div class="comment-card" v-for="comment in allComments" :key="comment.id">
         <div class="content">
           <div class="user-name">{{ comment.User.lastname }} {{ comment.User.firstname }}</div>
           <div class="date">{{ moment(comment.createdAt).fromNow() }}</div>
@@ -61,6 +61,8 @@ import newComment from "./newComment";
 import deleteComment from "./deleteComment";
 const jwt = require('jsonwebtoken');
 import axios from "axios";
+import dotenv from 'dotenv';
+dotenv.config();
 export default {
   name: "oneMessage",
   components: {
@@ -88,8 +90,8 @@ export default {
   methods: {
     loadOneMessage() {
       let token = localStorage.getItem("token");
-      const SECRET_TOKEN ="vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375";
-      let decodedToken = jwt.verify(token, SECRET_TOKEN);
+      const VUE_APP_SECRET_TOKEN ="vDi-7Ge>AaT}5im5C724VGf#V8%/$hvX7QDnHB5p}kVg7za9HCf-6&HT;.2!R49&+857rSjVXP{_8-zvyf2u.5KY$p}}9)]jk375";
+      let decodedToken = jwt.verify(token, VUE_APP_SECRET_TOKEN);
       axios
         .get("http://localhost:3000/api/messages/" + this.id, {
           headers: { Authorization: "Bearer " + token },
@@ -162,7 +164,7 @@ li {
 .com {
   margin-top: 1rem;
 }
-#comment-card {
+.comment-card {
   margin: 1rem;
   border: solid #091F43;
   border-width: 2px;
@@ -204,7 +206,7 @@ li {
   .content_message img {
     width: 400px;
   }
-  .post, #comment-card {
+  .post, .comment-card {
     margin-right: 3rem;
     margin-left: 3rem;
   }

@@ -5,7 +5,7 @@
       <img class=logo src="../assets/logo/icon-left-font.png" alt="logo" />
       <!--Menu de navigation-->
       <ul class="links">
-        <li><a to="/signup" class="link" title="Revenir à l'écran d'Inscription" v-on:click="Logout()">
+        <li><a href="/signup" class="link" title="Revenir à l'écran d'Inscription" v-on:click="Logout()">
         <i class="fas fa-exclamation-triangle"></i>Déconnexion</a></li>
         <li><router-link to="/profile" class="link" title="Aller sur votre Profil"><i class="fas fa-user-circle">
           </i>Votre Profil</router-link></li>
@@ -32,6 +32,8 @@
 <script>
 import loadMessages from "./loadMessages";
 import newMessage from "./newMessage";
+import dotenv from 'dotenv';
+dotenv.config();
 export default {
   name: "forum",
   components: {

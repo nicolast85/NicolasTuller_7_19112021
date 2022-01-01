@@ -230,6 +230,7 @@ export default {
   .com {
     text-align: right;
     margin-right: 1rem;
+    margin-top: 1rem;
   }
   .far {
     margin-right: 0.25rem;

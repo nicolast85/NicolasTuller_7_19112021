@@ -5,12 +5,11 @@
       <!--Formulaire d'envoie de message-->
       <div>
         <label for="title"></label>
-        <input class="title" type="title" id="title" placeholder="Votre titre !" v-model="title" />
+        <input class="title" type="text" id="title" placeholder="Votre titre !" v-model="title" />
       </div>
-      <div id="content">
+      <div class="content">
         <label for="content"></label>
         <textarea
-          type="text"
           id="content"
           placeholder=" Votre message !"
           rows="6"
@@ -22,7 +21,7 @@
       <div id="join">
         <label class="selection" for="File">(Sélectionnez l'image à uploader [JPG,PNG,GIF])<br >
           <i class="fas fa-file-import"></i></label>
-        <input type="file" ref="file" accept=".jpg, .jpeg, .png, .gif"  @change="selectFile()" />
+        <input type="file" id="File" ref="file" accept=".jpg, .jpeg, .png, .gif"  @change="selectFile()" />
       </div>
       <!--Bouton d'envoie de message-->
       <button type="submit" @click.prevent="buttonNewMessage"><i class="fas fa-paper-plane" ></i>Envoyez</button>
@@ -36,6 +35,8 @@
 
 <script>
 import axios from "axios";
+import dotenv from 'dotenv';
+dotenv.config();
 export default {
   name: "newMessage",
   data() {
@@ -82,6 +83,9 @@ export default {
 <style scoped>
 button, #join, #content {
   margin-top: 0.5rem;
+}
+button {
+  font-size: 2rem;
 }
 .selection {
   font-style: italic;
