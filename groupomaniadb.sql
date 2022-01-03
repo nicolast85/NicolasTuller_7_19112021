@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 31 déc. 2021 à 21:29
+-- Généré le : lun. 03 jan. 2022 à 14:31
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -42,8 +42,6 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `idUsers`, `idMessages`, `comment`, `createdAt`, `updatedAt`) VALUES
 (1, 13, 1, 'premier commentaire', '2021-12-22 13:27:59', '2021-12-22 13:27:59'),
-(3, 12, 1, 'bonjour commentaire', '2021-12-22 14:37:15', '2021-12-22 14:37:15'),
-(5, 15, 5, 'bonsoir', '2021-12-22 15:10:31', '2021-12-22 15:10:31'),
 (6, 13, 7, 'so hot', '2021-12-23 15:30:40', '2021-12-23 15:30:40'),
 (10, 13, 9, 'Coucou happy !', '2021-12-24 14:57:02', '2021-12-24 14:57:02'),
 (11, 13, 10, 'test commentaire long : Et interdum acciderat, ut siquid in penetrali secreto nullo citerioris vitae ministro praesente paterfamilias uxori susurrasset in aurem, velut Amphiarao referente aut Marcio, quondam vatibus inclitis, postridie disceret imperator.', '2021-12-24 15:02:49', '2021-12-24 15:02:49'),
@@ -51,7 +49,9 @@ INSERT INTO `comments` (`id`, `idUsers`, `idMessages`, `comment`, `createdAt`, `
 (14, 13, 8, 'ne pas supprimer', '2021-12-29 09:14:20', '2021-12-29 09:14:20'),
 (18, 13, 1, 'test', '2021-12-31 16:34:00', '2021-12-31 16:34:00'),
 (19, 13, 1, 'test 2', '2021-12-31 16:45:28', '2021-12-31 16:45:28'),
-(20, 13, 14, 'OU ON ACHETE PLZ ???', '2021-12-31 16:45:53', '2021-12-31 16:45:53');
+(20, 13, 14, 'OU ON ACHETE PLZ ???', '2021-12-31 16:45:53', '2021-12-31 16:45:53'),
+(32, 13, 33, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters', '2022-01-03 10:16:19', '2022-01-03 10:16:19'),
+(33, 13, 33, 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable.', '2022-01-03 10:16:36', '2022-01-03 10:16:36');
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ INSERT INTO `messages` (`id`, `idUsers`, `title`, `content`, `image`, `like`, `d
 (14, 17, 'Orinoco', 'Mon 5ème projet : Orinoco, site e-commerce vendant des ours en peluche fais à la main', 'http://localhost:3000/images/orinoco.png1640619077777.png', NULL, NULL, NULL, NULL, '2021-12-27 15:31:17', '2021-12-27 15:31:17'),
 (15, 17, 'Piiquante', 'Mon 6ème projet : Hot Takes, application d\'avis gastronomique autour des sauces piquantes de Piiquante', 'http://localhost:3000/images/piquante.png1640619304462.png', NULL, NULL, NULL, NULL, '2021-12-27 15:35:04', '2021-12-27 15:35:04'),
 (19, 13, 'New message test', 'A supprimer pour demo', NULL, NULL, NULL, NULL, NULL, '2021-12-31 16:00:47', '2021-12-31 16:00:47'),
-(21, 12, '2022', 'Bonne année', NULL, NULL, NULL, NULL, NULL, '2021-12-31 16:52:30', '2021-12-31 16:52:30');
+(33, 13, 'Lorem Ipsum', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', NULL, NULL, NULL, NULL, NULL, '2022-01-03 10:15:38', '2022-01-03 10:15:38');
 
 -- --------------------------------------------------------
 
@@ -140,7 +140,6 @@ INSERT INTO `users` (`id`, `email`, `firstname`, `lastname`, `password`, `isAdmi
 (16, 'test4@email.fr', 'Testeur4', 'Developement4', '$2b$10$E4kt2YuPw5KSz8/iZm7ZVuUkzX3rjyc2cZj3dhT.Gyc2wiuCU8R6y', 0, '2021-12-22 15:17:20', '2021-12-22 15:17:20'),
 (17, 'test3@email.fr', 'Nicolas', 'Tuller', '$2b$10$o2M/2CmyXzs0GAPPjubu6OTqOON45JaFqzqybvc7waFq8ILexzaPe', 0, '2021-12-27 15:19:58', '2021-12-27 15:19:58'),
 (18, 'test5@email.fr', 'Testeur5', 'Developement5', '$2b$10$dubria2q0RQ7EL2QYDcwAuzaJvnhw1KLWx3uVbiUJynxvOuJQ2gh.', 0, '2021-12-28 13:20:19', '2021-12-28 13:20:19'),
-(19, 'erreur@email.fr', 'erreur', 'test', '$2b$10$vxsN22vpxORrlP65ACaO9eOA6GNWyQLpj04kcWounkajO.FNC4EeO', 0, '2021-12-29 11:54:16', '2021-12-29 11:54:16'),
 (20, 'test6@email.fr', 'Testeur6', 'Developement6', '$2b$10$sqVEZoundjq24Qm3xmV4cOZoNGBZ2VkuHee67wA8uAkmnaM1knMlK', 0, '2021-12-31 16:56:22', '2021-12-31 16:56:22'),
 (31, 'test8@email.fr', 'Testeur8', 'Developement8', '$2b$10$wfW3ThB/Bih4F/JCs79DUe8XrrtShKEmcrV8r3il7GKq2V.ojgL2C', 0, '2021-12-31 19:07:59', '2021-12-31 19:07:59');
 
@@ -152,13 +151,16 @@ INSERT INTO `users` (`id`, `email`, `firstname`, `lastname`, `password`, `isAdmi
 -- Index pour la table `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idUsers` (`idUsers`),
+  ADD KEY `idMessages` (`idMessages`);
 
 --
 -- Index pour la table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idUsers` (`idUsers`);
 
 --
 -- Index pour la table `sequelizemeta`
@@ -181,19 +183,36 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`idUsers`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`idMessages`) REFERENCES `messages` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`idUsers`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
